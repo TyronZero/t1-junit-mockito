@@ -5,8 +5,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import pe.edu.cibertec.ejercicio1.model.Producto;
-import pe.edu.cibertec.ejercicio1.repository.ProductoRepository;
+import pe.edu.cibertec.pruebas.producto.model.Producto;
+import pe.edu.cibertec.pruebas.producto.repository.ProductoRepository;
+import pe.edu.cibertec.pruebas.producto.service.ProductoService;
 
 import java.util.Optional;
 
