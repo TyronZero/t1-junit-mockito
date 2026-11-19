@@ -1,13 +1,12 @@
-package pe.edu.cibertec.ejercicio1.service;
+package pe.edu.cibertec.pruebas.producto.service;
 
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import pe.edu.cibertec.pruebas.producto.model.Producto;
 import pe.edu.cibertec.pruebas.producto.repository.ProductoRepository;
-import pe.edu.cibertec.pruebas.producto.service.ProductoService;
 
 import java.util.Optional;
 
@@ -16,6 +15,7 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class ProductoServiceTest {
+
     @Mock
     private ProductoRepository productoRepository;
 
@@ -23,18 +23,18 @@ class ProductoServiceTest {
     private ProductoService productoService;
 
     @Test
-    void consultarProducto_Exito(){
-        Producto producto = new Producto(1, "Teclado Mecánico");
+    void consultarProducto_Exito() {
+        Producto producto = new Producto(1, "Laptop Lenovo");
         when(productoRepository.findById(1)).thenReturn(Optional.of(producto));
 
         String resultado = productoService.consultarProducto("1");
 
-        assertEquals("Teclado Mecánico", resultado);
-        verify (productoRepository, times(1)).findById(1);
+        assertEquals("Laptop Lenovo", resultado);
+        verify(productoRepository, times(1)).findById(1);
     }
 
     @Test
-    void consultarProducto_CampoVacio(){
+    void consultarProducto_CampoVacio() {
         assertEquals("Debe ingresar los datos requeridos", productoService.consultarProducto(""));
         assertEquals("Debe ingresar los datos requeridos", productoService.consultarProducto("   "));
         assertEquals("Debe ingresar los datos requeridos", productoService.consultarProducto(null));
@@ -42,15 +42,15 @@ class ProductoServiceTest {
     }
 
     @Test
-    void consultarProducto_IdInvalido(){
+    void consultarProducto_IdInvalido() {
         assertEquals("Ingrese un ID válido", productoService.consultarProducto("0"));
-        assertEquals("Ingrese un ID válido", productoService.consultarProducto("-3"));
+        assertEquals("Ingrese un ID válido", productoService.consultarProducto("-2"));
         assertEquals("Ingrese un ID válido", productoService.consultarProducto("abc"));
         verifyNoInteractions(productoRepository);
     }
 
     @Test
-    void consultarProducto_NoEncontrado(){
+    void consultarProducto_NoEncontrado() {
         when(productoRepository.findById(99)).thenReturn(Optional.empty());
 
         String resultado = productoService.consultarProducto("99");

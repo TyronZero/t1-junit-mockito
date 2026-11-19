@@ -1,6 +1,6 @@
-package pe.edu.cibertec.ejercicio1.repository;
+package pe.edu.cibertec.pruebas.producto.repository;
 
-import pe.edu.cibertec.ejercicio1.model.Producto;
+import pe.edu.cibertec.pruebas.producto.model.Producto;
 
 import java.util.Optional;
 

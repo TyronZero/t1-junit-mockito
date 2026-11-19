@@ -1,30 +1,30 @@
-package pe.edu.cibertec.ejercicio1.model;
+package pe.edu.cibertec.pruebas.producto.model;
 
 public class Producto {
     private Integer id;
     private String nombre;
 
-    public Producto(){
+    public Producto() {
     }
 
-    public Producto(Integer id, String nombre){
+    public Producto(Integer id, String nombre) {
         this.id = id;
         this.nombre = nombre;
     }
 
-    public Integer getId(){
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id){
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getNombre(){
+    public String getNombre() {
         return nombre;
     }
 
-    public void setNombre(String nombre){
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 }
